@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-STUDY MEGA PORTAL</title>
+    <style>
+        :root { --gold: #d4af37; --blue: #0a3d62; --dark: #050c1a; }
+        body { background: var(--dark); color: white; font-family: sans-serif; margin: 0; text-align: center; }
+        .header { background: var(--blue); padding: 15px; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; }
+        
+        /* MULTI-PAGE SYSTEM */
+        .page { display: none; padding: 20px; min-height: 80vh; animation: fadeIn 0.5s; }
+        .active { display: block; }
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
+        /* MENU & BUTTONS */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
+        .btn { background: var(--gold); color: black; padding: 15px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; }
+        .footer { background: var(--gold); color: black; padding: 10px; font-weight: bold; position: fixed; bottom: 0; width: 100%; cursor: pointer; }
+        
+        .card { background: rgba(255,255,255,0.05); border: 1px solid var(--gold); border-radius: 15px; padding: 15px; margin-bottom: 15px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="font-weight:bold;">📱 X-STUDY SUPREME PORTAL</div>
+</div>
+
+<div id="home" class="page active">
+    <div class="card" style="background:var(--gold); color:black;"><b>RANK: IAS ASPIRANT 🇮🇳</b></div>
+    <h2>SWAGAT HAI, AMAN!</h2>
+    <div class="grid">
+        <button class="btn" onclick="showPage('library')">📚 LIBRARY</button>
+        <button class="btn" onclick="showPage('exams')">📝 EXAMS</button>
+        <button class="btn" onclick="showPage('projects')">📂 PROJECTS</button>
+        <button class="btn" onclick="showPage('motivation')">🏎️ DREAMS</button>
+        <button class="btn" onclick="showPage('profile')">👤 MY PROFILE</button>
+        <button class="btn" onclick="showPage('contact')">📞 CONTACT</button>
+    </div>
+</div>
+
+<div id="library" class="page">
+    <h2>📚 DIGITAL LIBRARY</h2>
+    <div class="card" onclick="window.open('https://ncert.nic.in/textbook/pdf/jesc101.pdf')">📖 10th Science Book</div>
+    <div class="card" onclick="window.open('https://ncert.nic.in/textbook/pdf/jemh101.pdf')">📖 9th Maths Book</div>
+    <button class="btn" onclick="showPage('home')">BACK TO HOME</button>
+</div>
+
+<div id="exams" class="page">
+    <h2>📝 EXAMINATION HALL</h2>
+    <div class="card">🔥 Weekly Test: Sunday 10 AM</div>
+    <button class="btn" onclick="alert('Test Shuru!')">START TEST</button>
+    <button class="btn" onclick="showPage('home')">BACK TO HOME</button>
+</div>
+
+<div id="projects" class="page">
+    <h2>📂 MEGA PROJECTS</h2>
+    <div class="card">🕉️ Ramayan 3D Game</div>
+    <div class="card">📖 Dr. B.R. Ambedkar Life Game</div>
+    <div class="card">📲 Kisan Setu (Farmer App)</div>
+    <button class="btn" onclick="showPage('home')">BACK TO HOME</button>
+</div>
+
+<div id="motivation" class="page">
+    <h2>🏎️ MISSION 2035</h2>
+    <div class="card">🚘 BMW M5 Competition</div>
+    <div class="card">✈️ Private Jet for Mom</div>
+    <div class="card">🏠 Luxury Mansion</div>
+    <button class="btn" onclick="showPage('home')">BACK TO HOME</button>
+</div>
+
+<div class="footer" onclick="showPage('home')">
+    <marquee>🏎️ BMW M5 | 🏛️ LBSNAA | ✈️ PRIVATE JET | 🏠 LUXURY MANSION</marquee>
+</div>
+
+<script>
+    function showPage(pageId) {
+        // Saare pages hide karo
+        let pages = document.querySelectorAll('.page');
+        pages.forEach(p => p.classList.remove('active'));
+        // Chuna hua page dikhao
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0,0);
+    }
+</script>
+
+</body>
+</html>
